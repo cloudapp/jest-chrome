@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { chrome } from '.'
-import { Storage, Runtime } from './jest-chrome'
+import { Storage, Runtime } from './vitest-chrome'
 import {
   CallableEvent,
   EventCallback,
@@ -7,9 +8,10 @@ import {
 } from './create-event'
 import { readJSONSync } from 'fs-extra'
 import { resolve } from 'path'
+import { vi } from 'vitest'
 
 const chromeSchema = readJSONSync(
-  resolve(__dirname, 'jest-chrome-schema.json'),
+  resolve(__dirname, 'vitest-chrome-schema.json'),
 )
 
 afterEach(() => {
@@ -78,7 +80,7 @@ test('ownKeys: storage', () => {
 })
 
 test('set: lastError correctly', () => {
-  const lastErrorSpy = jest.fn(() => 'test')
+  const lastErrorSpy = vi.fn(() => 'test')
   const lastError = {
     get message() {
       return lastErrorSpy()
@@ -92,7 +94,7 @@ test('set: lastError correctly', () => {
 })
 
 test('set: lastError incorrectly', () => {
-  const lastError = ('error' as unknown) as Runtime.LastError
+  const lastError = 'error' as unknown as Runtime.LastError
 
   const setter = () => (chrome.runtime.lastError = lastError)
 

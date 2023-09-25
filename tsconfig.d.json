@@ -3,9 +3,9 @@
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "types",
-    "emitDeclarationOnly": true,
+    "emitDeclarationOnly": true
   },
-  "include": ["src"],
+  "include": ["src", "./auto-imports.d.ts"],
   "exclude": [
     "**/*.test.ts",
     "lib",

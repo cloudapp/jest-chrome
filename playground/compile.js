@@ -23,7 +23,7 @@ const chromeApi = schema.reduce(
 )
 
 writeJSON(
-  resolve(__dirname, 'jest-chrome-schema.json'),
+  resolve(__dirname, 'vitest-chrome-schema.json'),
   chromeApi,
   {
     spaces: 2,

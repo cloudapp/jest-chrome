@@ -1,5 +1,6 @@
+import { vi, Mock } from 'vitest'
 import { createEvent } from './create-event'
-import { Storage } from './jest-chrome'
+import { Storage } from './vitest-chrome'
 
 /**
  * Namespace member data format from jest-chrome-schema.json
@@ -8,7 +9,7 @@ import { Storage } from './jest-chrome'
  * @template T Type of namespace member
  */
 interface SchemaData<
-  T extends 'event' | 'function' | 'property'
+  T extends 'event' | 'function' | 'property',
 > {
   name: string
   type: T
@@ -65,8 +66,8 @@ export const addEvent = (
 export const addFunction = (
   { name }: SchemaData<'function'>,
   target: any,
-) => {
-  const fn = jest.fn()
+): Mock<any, any> => {
+  const fn = vi.fn()
   Object.assign(target, { [name]: fn })
 
   return fn
@@ -93,10 +94,10 @@ export const addProperty = (
 
 export function addStorageArea(): Storage.StorageArea {
   return {
-    clear: jest.fn(),
-    get: jest.fn(),
-    getBytesInUse: jest.fn(),
-    remove: jest.fn(),
-    set: jest.fn(),
+    clear: vi.fn(),
+    get: vi.fn(),
+    getBytesInUse: vi.fn(),
+    remove: vi.fn(),
+    set: vi.fn(),
   }
 }
