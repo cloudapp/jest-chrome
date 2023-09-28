@@ -32,6 +32,7 @@
     "build:types": "tsc -p tsconfig.d.json",
     "build:watch": "pnpm run build:dev -- -w",
     "postpublish": "rm -rf node_modules package-lock.json && pnpm i",
+    "prepare": "pnpm build",
     "start": "run-p build:watch",
     "pretest": "pnpm run build",
     "test": "vitest run"
