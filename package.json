@@ -23,6 +23,10 @@
     "vitest-chrome.d.ts",
     "auto-imports.d.ts"
   ],
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "build": "run-s build:clean build:pro build:types build:copy",
     "build:clean": "rm -rf lib types",
