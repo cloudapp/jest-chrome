@@ -1,6 +1,6 @@
 {
   "name": "@cloudapp/vitest-chrome",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Test Chrome extensions with Vitest. A complete mock of the Chrome API.",
   "keywords": [
     "api",
